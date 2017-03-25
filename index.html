@@ -33,21 +33,6 @@
         <link href="index.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <a href="https://github.com/rse/es6-features">
-            <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 2000;"
-                 src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
-                 alt="Fork me on GitHub"
-                 data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"/>
-        </a>
-        <iframe id="starbutton" src="https://ghbtns.com/github-btn.html?user=rse&repo=es6-features&type=star&count=true"
-            frameborder="0" scrolling="0" width="170px" height="20px">
-        </iframe>
-        <a class="twitter-share-button" href="https://twitter.com/share"
-            data-url="http://es6-features.org"
-            data-text="See how cleaner and more concise JavaScript can look and start coding in ECMAScript 6 now! @engelschall's"
-            data-hashtags="ES6"
-            data-related="engelschall"
-        >Tweet</a>
         <script>
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>0
         </script>
@@ -176,20 +161,12 @@
     <a href="#GeneratorMethods">Generator Methods</a> <i class="fa fa-arrow-circle-right"></i></li>
     </ul>
 </li>
-<li class="title">Map/Set & WeakMap/WeakSet
+<li class="title">Map/Set
     <ul>
 <li class="subtitle subtitle_SetDataStructure">
     <a href="#SetDataStructure">Set Data-Structure</a> <i class="fa fa-arrow-circle-right"></i></li>
 <li class="subtitle subtitle_MapDataStructure">
     <a href="#MapDataStructure">Map Data-Structure</a> <i class="fa fa-arrow-circle-right"></i></li>
-<li class="subtitle subtitle_WeakLinkDataStructures">
-    <a href="#WeakLinkDataStructures">Weak-Link Data-Structures</a> <i class="fa fa-arrow-circle-right"></i></li>
-    </ul>
-</li>
-<li class="title">Typed Arrays
-    <ul>
-<li class="subtitle subtitle_TypedArrays">
-    <a href="#TypedArrays">Typed Arrays</a> <i class="fa fa-arrow-circle-right"></i></li>
     </ul>
 </li>
 <li class="title">New Built-In Methods
@@ -1248,7 +1225,7 @@ based on generator functions.</div>
     <i class="icon fa fa-times-circle"></i>
 </div>
 </div>
-<div id="SetDataStructure" class="showcase showcase_SetDataStructure">    <div class="title">Map/Set & WeakMap/WeakSet</div>
+<div id="SetDataStructure" class="showcase showcase_SetDataStructure">    <div class="title">Map/Set</div>
     <div class="subtitle">Set Data-Structure</div>
     <div class="desc">Cleaner data-structure for common algorithms based on sets.</div>
 <div class="js es6">
@@ -1276,7 +1253,7 @@ s<span class="punctuation">.</span><span class="mark">has<span class="punctuatio
     <i class="icon fa fa-times-circle"></i>
 </div>
 </div>
-<div id="MapDataStructure" class="showcase showcase_MapDataStructure">    <div class="title">Map/Set & WeakMap/WeakSet</div>
+<div id="MapDataStructure" class="showcase showcase_MapDataStructure">    <div class="title">Map/Set</div>
     <div class="subtitle">Map Data-Structure</div>
     <div class="desc">Cleaner data-structure for common algorithms based on maps.</div>
 <div class="js es6">
@@ -1305,90 +1282,6 @@ m<span class="punctuation">.</span><span class="mark">size</span> <span class="p
         console<span class="punctuation">.</span>log<span class="punctuation">(</span>key <span class="punctuation">+</span> <span class="literal">"<span class="punctuation"> = </span>"</span> <span class="punctuation">+</span> val<span class="punctuation">)</span><span class="semi">;</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span></div>
-    <i class="icon fa fa-circle"></i>
-    <i class="icon fa fa-times-circle"></i>
-</div>
-</div>
-<div id="WeakLinkDataStructures" class="showcase showcase_WeakLinkDataStructures">    <div class="title">Map/Set & WeakMap/WeakSet</div>
-    <div class="subtitle">Weak-Link Data-Structures</div>
-    <div class="desc">Memory-leak-free Object-key’d side-by-side data-structures.</div>
-<div class="js es6">
-    <div class="title"><b>ECMAScript 6</b> &mdash; syntactic sugar: <span class="style reduced">reduced</span> | <span class="style traditional">traditional</span></div>
-    <div class="code"><span class="keyword">let</span> isMarked    <span class="punctuation"> = </span><span class="keyword">new</span> <span class="mark">WeakSet</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="semi">;</span>
-<span class="keyword">let</span> attachedData<span class="punctuation"> = </span><span class="keyword">new</span> <span class="mark">WeakMap</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="semi">;</span>
-
-<span class="keyword">export</span> <span class="keyword">class</span> Node <span class="punctuation">{</span>
-    constructor <span class="punctuation">(</span>id<span class="punctuation">)</span>   <span class="punctuation">{</span> <span class="keyword">this</span><span class="punctuation">.</span>id<span class="punctuation"> = </span>id<span class="semi">;</span>                  <span class="punctuation">}</span>
-    mark        <span class="punctuation">(</span><span class="punctuation">)</span>     <span class="punctuation">{</span> <span class="mark">isMarked<span class="punctuation">.</span>add</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">)</span><span class="semi">;</span>            <span class="punctuation">}</span>
-    unmark      <span class="punctuation">(</span><span class="punctuation">)</span>     <span class="punctuation">{</span> <span class="mark">isMarked<span class="punctuation">.</span>delete</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">)</span><span class="semi">;</span>         <span class="punctuation">}</span>
-    marked      <span class="punctuation">(</span><span class="punctuation">)</span>     <span class="punctuation">{</span> <span class="keyword">return</span> <span class="mark">isMarked<span class="punctuation">.</span>has</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">)</span><span class="semi">;</span>     <span class="punctuation">}</span>
-    set data    <span class="punctuation">(</span>data<span class="punctuation">)</span> <span class="punctuation">{</span> <span class="mark">attachedData<span class="punctuation">.</span>set</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">,</span> data<span class="punctuation">)</span><span class="semi">;</span>  <span class="punctuation">}</span>
-    get data    <span class="punctuation">(</span><span class="punctuation">)</span>     <span class="punctuation">{</span> <span class="keyword">return</span> <span class="mark">attachedData<span class="punctuation">.</span>get</span><span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">)</span><span class="semi">;</span> <span class="punctuation">}</span>
-<span class="punctuation">}</span>
-
-<span class="keyword">let</span> foo<span class="punctuation"> = </span><span class="keyword">new</span> Node<span class="punctuation">(</span><span class="literal">"foo"</span><span class="punctuation">)</span><span class="semi">;</span>
-
-JSON<span class="punctuation">.</span>stringify<span class="punctuation">(</span>foo<span class="punctuation">)</span> <span class="punctuation">===</span> <span class="mark"><span class="literal">'<span class="punctuation">{</span>"id":"foo"<span class="punctuation">}</span>'</span></span><span class="semi">;</span>
-foo<span class="punctuation">.</span>mark<span class="punctuation">(</span><span class="punctuation">)</span><span class="semi">;</span>
-foo<span class="punctuation">.</span>data<span class="punctuation"> = </span><span class="literal">"bar"</span><span class="semi">;</span>
-foo<span class="punctuation">.</span>data <span class="punctuation">===</span> <span class="literal">"bar"</span><span class="semi">;</span>
-JSON<span class="punctuation">.</span>stringify<span class="punctuation">(</span>foo<span class="punctuation">)</span> <span class="punctuation">===</span> <span class="mark"><span class="literal">'<span class="punctuation">{</span>"id":"foo"<span class="punctuation">}</span>'</span></span><span class="semi">;</span>
-
-isMarked<span class="punctuation">.</span>has<span class="punctuation">(</span>foo<span class="punctuation">)</span>     <span class="punctuation">===</span> <span class="mark">true</span>
-attachedData<span class="punctuation">.</span>has<span class="punctuation">(</span>foo<span class="punctuation">)</span> <span class="punctuation">===</span> <span class="mark">true</span>
-foo <span class="mark">=</span> null  /<span class="punctuation">*</span> remove only reference to foo <span class="punctuation">*</span>/
-attachedData<span class="punctuation">.</span>has<span class="punctuation">(</span>foo<span class="punctuation">)</span> <span class="punctuation">===</span> <span class="mark">false</span>
-isMarked<span class="punctuation">.</span>has<span class="punctuation">(</span>foo<span class="punctuation">)</span>     <span class="punctuation">===</span> <span class="mark">false</span>
-</div>
-    <i class="icon fa fa-circle"></i>
-    <i class="icon fa fa-check-circle"></i>
-</div>
-    <div class="arrow"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div><div class="js es5">
-    <div class="title"><b>ECMAScript 5</b> &mdash; syntactic sugar: <span class="style reduced">reduced</span> | <span class="style traditional">traditional</span></div>
-    <div class="code"><span class="comment">// no equivalent <span class="keyword">in</span> ES<span class="literal">5</span></span></div>
-    <i class="icon fa fa-circle"></i>
-    <i class="icon fa fa-times-circle"></i>
-</div>
-</div>
-<div id="TypedArrays" class="showcase showcase_TypedArrays">    <div class="title">Typed Arrays</div>
-    <div class="subtitle">Typed Arrays</div>
-    <div class="desc">Support for arbitrary byte-based data structures to implement network
-protocols, cryptography algorithms, file format manipulations, etc.</div>
-<div class="js es6">
-    <div class="title"><b>ECMAScript 6</b> &mdash; syntactic sugar: <span class="style reduced">reduced</span> | <span class="style traditional">traditional</span></div>
-    <div class="code"><span class="comment">//  ES<span class="literal">6</span> <span class="keyword">class</span> equivalent to the following C structure:</span><span class="comment">
-//  struct Example <span class="punctuation">{</span> unsigned long id<span class="punctuation">;</span> char username<span class="punctuation">[</span><span class="literal">16</span><span class="punctuation">]</span><span class="punctuation">;</span> float amountDue<span class="semi">;</span> <span class="punctuation">}</span><span class="semi">;</span></span>
-<span class="keyword">class</span> Example <span class="punctuation">{</span>
-    constructor <span class="punctuation">(</span>buffer<span class="punctuation"> = </span><span class="mark"><span class="keyword">new</span> ArrayBuffer<span class="punctuation">(</span><span class="literal">24</span><span class="punctuation">)</span></span><span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">this</span><span class="punctuation">.</span>buffer<span class="punctuation"> = </span>buffer<span class="semi">;</span>
-    <span class="punctuation">}</span>
-    set buffer <span class="punctuation">(</span>buffer<span class="punctuation">)</span> <span class="punctuation">{</span>
-        <span class="keyword">this</span><span class="punctuation">.</span>_buffer   <span class="punctuation"> = </span>buffer<span class="semi">;</span>
-        <span class="keyword">this</span><span class="punctuation">.</span>_id       <span class="punctuation"> = </span><span class="mark"><span class="keyword">new</span> Uint<span class="literal">32</span>Array <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span>_buffer<span class="punctuation">,</span>  <span class="literal">0</span><span class="punctuation">,</span>  <span class="literal">1</span><span class="punctuation">)</span></span><span class="semi">;</span>
-        <span class="keyword">this</span><span class="punctuation">.</span>_username <span class="punctuation"> = </span><span class="mark"><span class="keyword">new</span> Uint<span class="literal">8</span>Array  <span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span>_buffer<span class="punctuation">,</span>  <span class="literal">4</span><span class="punctuation">,</span> <span class="literal">16</span><span class="punctuation">)</span></span><span class="semi">;</span>
-        <span class="keyword">this</span><span class="punctuation">.</span>_amountDue<span class="punctuation"> = </span><span class="mark"><span class="keyword">new</span> Float<span class="literal">32</span>Array<span class="punctuation">(</span><span class="keyword">this</span><span class="punctuation">.</span>_buffer<span class="punctuation">,</span> <span class="literal">20</span><span class="punctuation">,</span>  <span class="literal">1</span><span class="punctuation">)</span></span><span class="semi">;</span>
-    <span class="punctuation">}</span>
-    get buffer <span class="punctuation">(</span><span class="punctuation">)</span>     <span class="punctuation">{</span> <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span>_buffer<span class="semi">;</span>       <span class="punctuation">}</span>
-    set id <span class="punctuation">(</span>v<span class="punctuation">)</span>        <span class="punctuation">{</span> <span class="keyword">this</span><span class="punctuation">.</span>_id<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="punctuation"> = </span>v<span class="semi">;</span>           <span class="punctuation">}</span>
-    get id <span class="punctuation">(</span><span class="punctuation">)</span>         <span class="punctuation">{</span> <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span>_id<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="semi">;</span>        <span class="punctuation">}</span>
-    set username <span class="punctuation">(</span>v<span class="punctuation">)</span>  <span class="punctuation">{</span> <span class="keyword">this</span><span class="punctuation">.</span>_username<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="punctuation"> = </span>v<span class="semi">;</span>     <span class="punctuation">}</span>
-    get username <span class="punctuation">(</span><span class="punctuation">)</span>   <span class="punctuation">{</span> <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span>_username<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="semi">;</span>  <span class="punctuation">}</span>
-    set amountDue <span class="punctuation">(</span>v<span class="punctuation">)</span> <span class="punctuation">{</span> <span class="keyword">this</span><span class="punctuation">.</span>_amountDue<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="punctuation"> = </span>v<span class="semi">;</span>    <span class="punctuation">}</span>
-    get amountDue <span class="punctuation">(</span><span class="punctuation">)</span>  <span class="punctuation">{</span> <span class="keyword">return</span> <span class="keyword">this</span><span class="punctuation">.</span>_amountDue<span class="punctuation">[</span><span class="literal">0</span><span class="punctuation">]</span><span class="semi">;</span> <span class="punctuation">}</span>
-<span class="punctuation">}</span>
-
-<span class="keyword">let</span> example<span class="punctuation"> = </span><span class="keyword">new</span> Example<span class="punctuation">(</span><span class="punctuation">)</span>
-example<span class="punctuation">.</span><span class="mark">id</span><span class="punctuation"> = </span><span class="literal">7</span>
-example<span class="punctuation">.</span><span class="mark">username</span><span class="punctuation"> = </span><span class="literal">"John Doe"</span>
-example<span class="punctuation">.</span><span class="mark">amountDue</span><span class="punctuation"> = </span><span class="literal">42</span><span class="punctuation">.</span><span class="literal">0</span>
-</div>
-    <i class="icon fa fa-circle"></i>
-    <i class="icon fa fa-check-circle"></i>
-</div>
-    <div class="arrow"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div><div class="js es5">
-    <div class="title"><b>ECMAScript 5</b> &mdash; syntactic sugar: <span class="style reduced">reduced</span> | <span class="style traditional">traditional</span></div>
-    <div class="code"><span class="comment">//  no equivalent <span class="keyword">in</span> ES<span class="literal">5</span></span><span class="comment">
-//  <span class="punctuation">(</span>only an equivalent <span class="keyword">in</span> HTML<span class="literal">5</span><span class="punctuation">)</span></span></div>
     <i class="icon fa fa-circle"></i>
     <i class="icon fa fa-times-circle"></i>
 </div>
@@ -1726,12 +1619,6 @@ care of ordering of the underlying asynchronous operations yourself.</div>
 
             <!-- ATTENTION: END OF GENERATED CODE. DO NOT EDIT MANUALLY -->
         </div>
-        <div class="foot">
-            <div class="text">
-                Copyright &copy; 2015-2016 <a href="http://engelschall.com/">Ralf S. Engelschall</a> &nbsp; <i class="fa fa-twitter-square"></i> <a href="http://twitter.com/engelschall">@engelschall</a><br/>
-                Fully generated from a <a href="https://github.com/rse/es6-features/blob/gh-pages/features.txt">single source</a><br/>
-                Licensed under <a href="https://github.com/rse/es6-features/blob/gh-pages/LICENSE.txt">MIT License</a>.
-            </div>
-        </div>
+
     </body>
 </html>
